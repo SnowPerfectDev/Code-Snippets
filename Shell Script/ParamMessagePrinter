@@ -1,8 +1,1 @@
-Neste repositório, você encontrará um trecho de código em linguagem de shell que eu criei para facilitar o processamento de argumentos de linha de comando. A função definida no código permite exibir mensagens informativas com base nos parâmetros especificados.
 
-Recursos do Código:
-- Uma função "a" foi criada para tratar argumentos de linha de comando.
-- O script utiliza um loop para analisar os parâmetros fornecidos.
-- Ao usar o parâmetro "-a", a função exibirá uma mensagem personalizada junto com os argumentos a partir do segundo.
-- O parâmetro "-b" também ativa uma mensagem informativa semelhante.
-- Este código é útil em situações em que você deseja comunicar mensagens específicas com base nos argumentos utilizados.
