@@ -1,0 +1,24 @@
+function clone() {
+    if [ $# -lt 1 ]; then
+        echo "Usage: clone <repository_url> [destination_directory]"
+        return 1
+    fi
+
+    default_destination="$HOME/clones"  # Default directory for clones
+
+    if [ $# -eq 1 ]; then
+        destination="$default_destination"
+    else
+        destination="$default_destination/$2"
+    fi
+
+    mkdir -p "$destination"  # Create the destination directory if it doesn't exist
+
+    git clone -q "$1" "$destination"
+    if [ $? -ne 0 ]; then
+        echo "Error: Cloning failed."
+        return 1
+    fi
+
+    echo "Cloning successful."
+}
