@@ -1,15 +1,12 @@
-# Nome da launcher padrão
-default_launcher="com.teslacoilsw.launcher"
+#!/system/bin/sh
 
-# Verificar se é superusuário e obter privilégios se necessário
-if [ "$(id -u)" != "0" ]; then
-  echo "Você não é superusuário. Execute o script como superusuário."
-  exit 1
-fi
+# Nome da launcher padrão
+default_package="com.termux"
 
 # Iterar pelos pacotes de aplicativos de terceira parte
 for package in $(pm list packages -3 | cut -d ":" -f 2); do
-  if [ "$package" != "$default_launcher" ]; then
-    am force-stop $package
+  if [ "$package" != "$default_package" ]; then
+   su -c am force-stop $package
   fi
 done
+
