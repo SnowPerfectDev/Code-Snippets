@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Informe a URL do repositório como argumento ao executar o script
+repo_url=$1
+
+# Verifica se a URL do repositório foi fornecida
+if [ -z "$repo_url" ]; then
+  echo "Por favor, forneça a URL do repositório como argumento."
+  exit 1
+fi
+
+# Obtém o nome da pasta clonada
+folder_name=$(basename "$repo_url" .git)
+
+# Verifica se a pasta já existe
+if [ -d "$folder_name" ]; then
+  # Se existir, encontra um novo nome adicionando um número incremental
+  count=1
+  while [ -d "$folder_name-$count" ]; do
+    ((count++))
+  done
+  new_folder_name="$folder_name-$count"
+else
+  # Se não existir, usa o nome padrão
+  new_folder_name="$folder_name"
+fi
+
+# Clona o repositório
+git clone -q $repo_url "$new_folder_name"
+
+echo "Clone concluído com sucesso. Pasta renomeada para: $new_folder_name"
+
