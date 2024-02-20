@@ -1,2 +1,2 @@
 > Notes: 
-* Both Scripts do almost the same thing.
+* Both "gc" and "clonex" scripts do almost the same thing
