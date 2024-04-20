@@ -1,0 +1,7 @@
+findcmd() {
+  commandlog=$(history | cut -c8- | sort -u)
+  for var in "$@"; do
+    commandlog=$(echo "$commandlog" | grep -i "$var")
+  done
+  echo "$commandlog"
+}
