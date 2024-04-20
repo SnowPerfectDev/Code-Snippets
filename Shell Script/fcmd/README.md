@@ -1,0 +1,1 @@
+- The fcmd function filters and displays previous history commands that match the given arguments.
