@@ -22,6 +22,5 @@ class Adb():
             else:
                 return True
 
-# Exemplo de uso:
 adb_instance = Adb()
 adb_instance.cmd('adb devices')
