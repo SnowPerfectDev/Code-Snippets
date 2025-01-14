@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Página de Download</title>
+    <style>
+        body {
+            background-color: #f3f3f3;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .download-button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .download-button:hover {
+            background-color: #45a049;
+        }
+        .download-button img {
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var ipAddressElement = document.getElementById('ip-address');
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://api.ipify.org?format=json', true);
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    var ipAddress = response.ip;
+                    ipAddressElement.textContent = ipAddress;
+                }
+            };
+            xhr.send();
+        });
+    </script>
+</head>
+<body>
+    <h1>Bem-vindo à Página de Download</h1>
+    <p>O servidor Apache está conectado ao seguinte endereço IP:</p>
+    <p id="ip-address">Obtendo endereço IP...</p>
+    <p>Selecione um arquivo para baixar:</p>
+    <ul>
+        <li>
+            <a href="caminho_para_arquivo1.pdf" class="download-button">
+                <img src="icone_arquivo1.png" alt="Ícone do Arquivo 1" width="32" height="32">
+                Arquivo 1
+            </a>
+        </li>
+        <li>
+            <a href="caminho_para_arquivo2.zip" class="download-button">
+                <img src="icone_arquivo2.png" alt="Ícone do Arquivo 2" width="32" height="32">
+                Arquivo 2
+            </a>
+        </li>
+        <li>
+            <a href="caminho_para_arquivo3.png" class="download-button">
+                <img src="icone_arquivo3.png" alt="Ícone do Arquivo 3" width="32" height="32">
+                Arquivo 3
+            </a>
+        </li>
+    </ul>
+</body>
+</html>
